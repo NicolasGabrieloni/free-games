@@ -1,7 +1,6 @@
 import "./allgames.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "aos/dist/aos.css";
 import { Loader } from "../loader";
 
 function Allgames() {
