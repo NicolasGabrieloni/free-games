@@ -4,7 +4,9 @@ import { Loader } from "../loader";
 
 function Mmorpg() {
   const [data, setdata] = useState([]);
+  const [tablagames, setTablagames] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +25,7 @@ function Mmorpg() {
           }
         );
         setdata(response.data);
+        setTablagames(response.data);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -32,12 +35,43 @@ function Mmorpg() {
     fetchData();
   }, []);
 
+  const handleChange = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  };
+
+  const filtrar = (terminoBusqueda) => {
+    let resultadoBusqueda = tablagames.filter((item) => {
+      if (
+        item.title
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        item.genre
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+      ) {
+        return item;
+      }
+    });
+    setdata(resultadoBusqueda);
+  };
+
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <div className="gamesContainer">
+          <div className="buscador">
+            <input
+              className="inputBuscar"
+              value={busqueda}
+              placeholder="search by name"
+              onChange={handleChange}
+            />
+          </div>
           <h2>MMORPG</h2>
           <div className="cardsContainer">
             {data.map((item) => (

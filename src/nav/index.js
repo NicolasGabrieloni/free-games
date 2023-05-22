@@ -2,6 +2,8 @@ import "./nav.css";
 import { Outlet, NavLink } from "react-router-dom";
 
 function Nav() {
+ 
+
   return (
     <div className="navContainer">
       <h1>FREE GAMES</h1>
