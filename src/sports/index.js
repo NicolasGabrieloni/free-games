@@ -42,7 +42,7 @@ function Sports() {
   };
 
   const filtrar = (terminoBusqueda) => {
-    let resultadoBusqueda = tablagames.filter((item) => {
+    let resultadoBusqueda = tablagames.filter(item => {
       if (
         item.title
           .toString()
@@ -55,6 +55,7 @@ function Sports() {
       ) {
         return item;
       }
+      return null; 
     });
     setdata(resultadoBusqueda);
   };

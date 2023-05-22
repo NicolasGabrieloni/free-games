@@ -41,7 +41,7 @@ function Racing() {
   };
 
   const filtrar = (terminoBusqueda) => {
-    let resultadoBusqueda = tablagames.filter((item) => {
+    let resultadoBusqueda = tablagames.filter(item => {
       if (
         item.title
           .toString()
@@ -54,6 +54,7 @@ function Racing() {
       ) {
         return item;
       }
+      return null; 
     });
     setdata(resultadoBusqueda);
   };

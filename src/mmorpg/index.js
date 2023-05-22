@@ -41,7 +41,7 @@ function Mmorpg() {
   };
 
   const filtrar = (terminoBusqueda) => {
-    let resultadoBusqueda = tablagames.filter((item) => {
+    let resultadoBusqueda = tablagames.filter(item => {
       if (
         item.title
           .toString()
@@ -54,6 +54,7 @@ function Mmorpg() {
       ) {
         return item;
       }
+      return null; 
     });
     setdata(resultadoBusqueda);
   };

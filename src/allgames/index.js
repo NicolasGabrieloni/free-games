@@ -52,6 +52,7 @@ function Allgames() {
       ) {
         return item;
       }
+      return null; 
     });
     setdata(resultadoBusqueda);
   };
